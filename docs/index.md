@@ -1,37 +1,154 @@
-## Welcome to GitHub Pages
+<html>
+<head>
+ <title></title>
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+ <style>
+  *{ margin: 0; padding:0; font-family: 'Josefin Sans', sans-serif;}
 
-You can use the [editor on GitHub](https://github.com/anisurrahmanlikhon/Bulb-light-on-off/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+  h1{
+   text-align: center;
+   margin-top: 40px;
+   text-transform: uppercase;
+  }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  .lightapp{
+   width: 100%;
+   height: 80vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
 
-### Markdown
+  figcaption{
+   text-align: center;
+  }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+  .onoffbtn{
+   width: 100%;
+   margin-top: -50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
 
-```markdown
-Syntax highlighted code block
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+  }
 
-# Header 1
-## Header 2
-### Header 3
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 
-- Bulleted
-- List
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: brown;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
 
-1. Numbered
-2. List
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 41px;
+    width: 40px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
 
-**Bold** and _Italic_ and `Code` text
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
 
-[Link](url) and ![Image](src)
-```
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+  input:checked + .slider:before {
+    -webkit-transform: translateX(40px);
+    -ms-transform: translateX(40px);
+    transform: translateX(40px);
+  }
+ </style>
+</head>
+<body>
 
-### Jekyll Themes
+<h1 id="bulbdata"> Lights ON OFF </h1>
+<br>
+<main class="lightapp">
+ <figure class="lightstyle">
+  <img src="lightoff.png" id="lightid1" >
+  <figcaption>
+   <p> Light ON OFF </p>
+  </figcaption>
+ </figure>
+ <figure class="lightstyle">
+  <img src="lightoff.png" id="lightid2">
+  <figcaption>
+   <p> Light ON OFF </p>
+  </figcaption>
+ </figure>
+ <figure class="lightstyle">
+  <img src="lightoff.png" id="lightid3">
+  <figcaption>
+   <p> Light ON OFF </p>
+  </figcaption>
+ </figure>
+ <figure class="lightstyle">
+  <img src="lightoff.png" id="lightid4">
+  <figcaption>
+   <p> Light ON OFF </p>
+  </figcaption>
+ </figure>
+ <figure class="lightstyle">
+  <img src="lightoff.png" id="lightid5">
+  <figcaption>
+   <p> Light ON OFF </p>
+  </figcaption>
+ </figure>
+</main>
+<div class="onoffbtn">
+ <label class="switch">
+  <input type="checkbox"> <span class="slider" 
+  onclick="tubelight()" > </span>
+ </label>
+</div>
+// Please if you want me to make such awesome videos then Subscribe to my channel.
+//DONATION FOR SUPPORT:    PhonePay = vinodbahadur@ybl      GooglePay: vbthapa55@oksbi
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anisurrahmanlikhon/Bulb-light-on-off/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+ //Believe me, all this money will be used to make more quality videos and to make my channel grow. So //that I can always provide you awesome free videos :)
 
-### Support or Contact
+<script>
+ const tubelight = () =>{
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  let btext = document.getElementById('bulbdata');
+  for(x=1; x<6; x++){
+   let bid =document.getElementById('lightid'.concat(x));
+   console.log(bid.src);
+
+   if(bid.src.match('lighton')){
+    bid.src="lightoff.png";
+    btext.innerHTML = "Light OFF";
+    btext.style.color = "black";
+   }else{
+    bid.src="lighton.png";
+    btext.innerHTML = "Light ON";
+    btext.style.color = "red";
+   }
+  }
+ }
+</script>
+</body>
+</html
